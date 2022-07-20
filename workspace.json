@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "service-a": "apps/service-a",
+    "service-a-core": "libs/service-a/core",
+    "service-b": "apps/service-b",
+    "service-b-core": "libs/service-b/core",
+    "service-b-hero-data-access-services": "libs/service-b/hero/data-access/services",
+    "service-b-hero-feature": "libs/service-b/hero/feature",
+    "shared": "libs/shared"
+  }
+}

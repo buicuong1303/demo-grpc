@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  service-a:
+    container_name: service-a
+    hostname: service-a
+    networks:
+      - demo-grpc
+
+  service-b:
+    container_name: service-b
+    hostname: service-b
+    networks:
+      - demo-grpc
+    env_file:
+      - .env
+
+networks:
+  demo-grpc:
+    name: demo-grpc
+

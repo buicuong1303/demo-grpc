@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@demo-grpc/service-a/core": ["libs/service-a/core/src/index.ts"],
+      "@demo-grpc/service-b/core": ["libs/service-b/core/src/index.ts"],
+      "@demo-grpc/service-b/hero/data-access/services": [
+        "libs/service-b/hero/data-access/services/src/index.ts"
+      ],
+      "@demo-grpc/service-b/hero/feature": [
+        "libs/service-b/hero/feature/src/index.ts"
+      ],
+      "@demo-grpc/shared": ["libs/shared/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
