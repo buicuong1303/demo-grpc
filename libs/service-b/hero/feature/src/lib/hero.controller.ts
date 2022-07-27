@@ -17,7 +17,7 @@ export class HeroController {
     return this.herosService.getData();
   }
 
-  @GrpcMethod('Health', 'Check')
+  @GrpcMethod('HealthNew', 'Check')
   check(
     data: HealthCheckRequest,
     metadata: Metadata,

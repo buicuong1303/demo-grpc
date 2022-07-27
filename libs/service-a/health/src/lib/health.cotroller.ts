@@ -17,11 +17,12 @@ export class HealthController {
   check() {
     return this.health.check([
       async () =>
-        this.grpc.checkService<GrpcOptions>('hero_service', 'Health', {
+        this.grpc.checkService<GrpcOptions>('hero_service', 'hero', {
           timeout: 2000,
           package: 'hero',
           url: 'localhost:5000',
           protoPath: join(process.cwd(), `${baseUrl}`, 'service-b.proto'),
+          healthServiceName: 'HealthNew'
         }),
     ]);
   }

@@ -33,7 +33,7 @@ export class ServiceBGrpcClient implements OnModuleInit {
   private _svc: SERVICE_B.IHealthGrpcClient;
 
   onModuleInit() {
-    this._svc = this.client.getService<SERVICE_B.IHealthGrpcClient>('Health');
+    this._svc = this.client.getService<SERVICE_B.IHealthGrpcClient>('HealthNew');
   }
 
   public get svc(): SERVICE_B.IHealthGrpcClient {
