@@ -1,17 +1,28 @@
 import { Metadata } from "@grpc/grpc-js";
 import { Observable } from "rxjs";
 
-export interface HeroById {
-  id: number;
+export enum ServingStatus {
+  UNKNOWN = 0,
+  SERVING = 1,
+  NOT_SERVING = 2
 }
-export interface HeroResponse {
-  id: number;
-  name: string;
+export interface HealthCheckRequest {
+  service: string;
 }
-export interface ServiceBClient {
-  getHero(
-    request: HeroById,
+export interface HealthCheckResponse {
+  status: ServingStatus;
+};
+export interface IHealthGrpcClient {
+  check(
+    request: HealthCheckRequest,
     metadata?: Metadata,
     ...rest: any
-  ): Observable<HeroResponse>
+  ): Observable<HealthCheckResponse>;
+}
+export interface IHealthGrpcController {
+  check(
+    request: HealthCheckRequest,
+    metadata?: Metadata,
+    ...rest: any
+  ): Observable<HealthCheckResponse> | Promise<HealthCheckResponse> | HealthCheckResponse
 }

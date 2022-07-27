@@ -1,12 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import {ServiceBGrpcClient} from '@demo-grpc/shared'
+import { ServiceBGrpcClient } from '@demo-grpc/shared';
 import { lastValueFrom } from 'rxjs';
 @Injectable()
 export class AppService {
-  constructor(
-    private _serviceB: ServiceBGrpcClient
-  ){}
-  getData(): Promise<any> {
-    return lastValueFrom(this._serviceB.svc.getHero({id: 1}));
+  constructor(private _serviceB: ServiceBGrpcClient) {}
+check(): Promise<any> {
+    return lastValueFrom(this._serviceB.svc.check({service: 'service-b'}));
   }
 }

@@ -33,13 +33,22 @@ async function bootstrap() {
     options: {
       package: 'hero',
       protoPath: join(process.cwd(), `${baseUrl}`, 'service-b.proto'),
-      // url: 'service-b:5000',
-      credentials,
+      url: 'localhost:5000',
+      // credentials,
     },
   });
   await app.startAllMicroservices();
   await app.listen(4001);
   console.log(`Application is running on: ${await app.getUrl()}`);
+  // const app = await NestFactory.createMicroservice(AppModule, {
+  //   transport: Transport.GRPC,
+  //   options: {
+  //     package: 'hero',
+  //     protoPath: join(process.cwd(), `${baseUrl}`, 'service-b.proto'),
+  //   },
+  // });
+  // app.listen();
+  // console.log('Microservice is listening');
 }
 
 bootstrap();

@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@demo-grpc/service-a/core": ["libs/service-a/core/src/index.ts"],
+      "@demo-grpc/service-a/health": ["libs/service-a/health/src/index.ts"],
       "@demo-grpc/service-b/core": ["libs/service-b/core/src/index.ts"],
       "@demo-grpc/service-b/hero/data-access/services": [
         "libs/service-b/hero/data-access/services/src/index.ts"

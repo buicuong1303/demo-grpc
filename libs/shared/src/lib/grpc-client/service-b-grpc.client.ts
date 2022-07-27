@@ -23,20 +23,20 @@ export class ServiceBGrpcClient implements OnModuleInit {
     options: {
       package: 'hero',
       protoPath: join(process.cwd(), `${baseUrl}`, 'service-b.proto'),
-      // url: 'service-b:5000',
-      credentials,
+      url: 'localhost:5000',
+      // credentials,
 
     },
   })
   client: ClientGrpc;
 
-  private _svc: SERVICE_B.ServiceBClient;
+  private _svc: SERVICE_B.IHealthGrpcClient;
 
   onModuleInit() {
-    this._svc = this.client.getService<SERVICE_B.ServiceBClient>('ServiceB');
+    this._svc = this.client.getService<SERVICE_B.IHealthGrpcClient>('Health');
   }
 
-  public get svc(): SERVICE_B.ServiceBClient {
+  public get svc(): SERVICE_B.IHealthGrpcClient {
     if (!this._svc) throw new Error('LearningServiceClient not initialized');
     return this._svc;
   }

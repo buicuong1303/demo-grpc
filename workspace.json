@@ -4,6 +4,7 @@
   "projects": {
     "service-a": "apps/service-a",
     "service-a-core": "libs/service-a/core",
+    "service-a-health": "libs/service-a/health",
     "service-b": "apps/service-b",
     "service-b-core": "libs/service-b/core",
     "service-b-hero-data-access-services": "libs/service-b/hero/data-access/services",

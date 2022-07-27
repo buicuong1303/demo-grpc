@@ -1,1 +1,1 @@
-export * from './lib/service-a-core.module';
+export * from './lib/core.module';

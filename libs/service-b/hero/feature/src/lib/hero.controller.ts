@@ -1,7 +1,11 @@
 import { Controller, Get } from '@nestjs/common';
 import { HerosService } from '@demo-grpc/service-b/hero/data-access/services';
 import { GrpcMethod } from '@nestjs/microservices';
-import { SERVICE_B } from '@demo-grpc/shared';
+import {
+  HealthCheckRequest,
+  HealthCheckResponse,
+  ServingStatus,
+} from '@demo-grpc/shared';
 import { Metadata, ServerUnaryCall } from '@grpc/grpc-js';
 
 @Controller()
@@ -13,12 +17,14 @@ export class HeroController {
     return this.herosService.getData();
   }
 
-  @GrpcMethod('ServiceB', 'GetHero')
-  getHero(data: SERVICE_B.HeroById, metadata: Metadata, call: ServerUnaryCall<any, any>): SERVICE_B.HeroResponse {
-    const items = [
-      { id: 1, name: 'HuHA' },
-      { id: 2, name: 'Doe' },
-    ];
-    return items.find(({ id }) => id === data.id);
+  @GrpcMethod('Health', 'Check')
+  check(
+    data: HealthCheckRequest,
+    metadata: Metadata,
+    call: ServerUnaryCall<any, any>
+  ): HealthCheckResponse {
+    return {
+      status: ServingStatus.SERVING,
+    };
   }
 }
