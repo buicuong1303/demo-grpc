@@ -6,8 +6,12 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
+  @Get('/check')
   check() {
     return this.appService.check();
+  }
+  @Get('/get-many')
+  getMany() {
+    return this.appService.getMany();
   }
 }

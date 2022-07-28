@@ -1,3 +1,4 @@
+/* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { Controller, Get } from '@nestjs/common';
 import { HerosService } from '@demo-grpc/service-b/hero/data-access/services';
 import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
@@ -29,6 +30,7 @@ export class HeroController {
     metadata: Metadata,
     call: ServerUnaryCall<any, any>
   ): HealthCheckResponse {
+    console.log('check')
     return {
       status: ServingStatus.SERVING,
     };
@@ -36,13 +38,16 @@ export class HeroController {
 
   @GrpcStreamMethod('HeroService')
   findMany(data$: Observable<HeroById>): Observable<Hero> {
+    console.log('get many')
     const hero$ = new Subject<Hero>();
-
     const onNext = (heroById: HeroById) => {
       const item = this.items.find(({ id }) => id === heroById.id);
       hero$.next(item);
     };
-    const onComplete = () => hero$.complete();
+    const onComplete = () => {
+      console.log('completed');
+      return  hero$.complete()
+    };
     data$.subscribe({
       next: onNext,
       complete: onComplete,
