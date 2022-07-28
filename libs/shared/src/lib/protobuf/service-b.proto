@@ -15,6 +15,16 @@ message HealthCheckResponse {
   ServingStatus status = 1;
 }
 
-service HealthNew {
+message HeroById {
+  int32 id = 1;
+}
+
+message Hero {
+  int32 id = 1;
+  string name = 2;
+}
+
+service HeroService {
   rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
+  rpc FindMany (stream HeroById) returns (stream Hero);
 }

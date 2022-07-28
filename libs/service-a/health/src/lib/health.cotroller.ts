@@ -22,7 +22,7 @@ export class HealthController {
           package: 'hero',
           url: 'localhost:5000',
           protoPath: join(process.cwd(), `${baseUrl}`, 'service-b.proto'),
-          healthServiceName: 'HealthNew'
+          healthServiceName: 'HeroService',
         }),
     ]);
   }
