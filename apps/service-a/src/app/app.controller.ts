@@ -10,8 +10,8 @@ export class AppController {
   check() {
     return this.appService.check();
   }
-  @Get('/get-many')
-  getMany() {
-    return this.appService.getMany();
+  @Get('/find-many')
+  findMany() {
+    return this.appService.findMany();
   }
 }

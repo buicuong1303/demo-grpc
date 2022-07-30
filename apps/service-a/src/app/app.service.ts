@@ -10,7 +10,7 @@ export class AppService {
     return lastValueFrom(this._serviceB.svc.check({ service: 'service-b' }));
   }
 
-  async getMany() {
+  async findMany() {
     const ids$ = new ReplaySubject<HeroById>();
     ids$.next({ id: 1 });
     ids$.next({ id: 2 });

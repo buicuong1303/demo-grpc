@@ -38,7 +38,7 @@ export class HeroController {
 
   @GrpcStreamMethod('HeroService')
   findMany(data$: Observable<HeroById>): Observable<Hero> {
-    console.log('get many')
+    console.log('get many') 
     const hero$ = new Subject<Hero>();
     const onNext = (heroById: HeroById) => {
       const item = this.items.find(({ id }) => id === heroById.id);
